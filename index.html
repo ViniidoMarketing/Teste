@@ -29,7 +29,7 @@
             line-height: 1.6;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER --- */
         header {
             background-color: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(10px);
@@ -64,9 +64,9 @@
 
         nav a:hover { color: var(--ouro-vibrante); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
-            height: 90vh;
+            height: 70vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -81,33 +81,9 @@
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 1rem;
             font-style: italic;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .cta-button {
-            background: transparent;
-            color: var(--ouro-vibrante);
-            border: 2px solid var(--ouro-vibrante);
-            padding: 15px 40px;
-            font-weight: bold;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background: var(--ouro-vibrante);
-            color: black;
         }
 
         /* --- TRUST BAR --- */
@@ -116,34 +92,34 @@
             color: var(--ouro);
             display: flex;
             justify-content: space-around;
-            padding: 20px 5%;
-            font-size: 0.8rem;
+            padding: 15px 5%;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* --- SECTIONS --- */
-        section { padding: 80px 5%; }
+        section { padding: 60px 5%; }
 
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
         }
 
         .section-header .line {
-            width: 60px;
+            width: 50px;
             height: 3px;
             background: var(--ouro);
             margin: 0 auto;
         }
 
-        /* --- PRODUCT GRID --- */
+        /* --- GRID --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -156,42 +132,16 @@
             background: white;
             padding: 15px;
             transition: var(--transition);
-            position: relative;
+            border: 1px solid #eee;
         }
 
-        .product-card:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 
-        .img-box {
-            height: 350px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            background: #eee;
-        }
+        .img-box { height: 320px; overflow: hidden; margin-bottom: 15px; background: #f9f9f9; }
+        .img-box img { width: 100%; height: 100%; object-fit: cover; }
 
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .img-box img { transform: scale(1.08); }
-
-        .product-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .price {
-            display: block;
-            color: var(--ouro);
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
+        .product-info h3 { font-size: 1rem; margin-bottom: 5px; text-transform: uppercase; }
+        .price { color: var(--ouro); font-weight: 600; font-size: 1.2rem; margin-bottom: 15px; display: block; }
 
         .buy-btn {
             width: 100%;
@@ -200,46 +150,37 @@
             color: white;
             border: none;
             text-transform: uppercase;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .buy-btn:hover { background: var(--ouro); }
+        .buy-btn:hover { background: var(--ouro); color: black; }
 
-        /* --- KITS SPECIAL --- */
-        .dark-section {
-            background: var(--cinza-escuro);
-            color: white;
-        }
-
+        .dark-section { background: var(--cinza-escuro); color: white; }
         .dark-section .section-header h2 { color: white; }
-
-        /* --- WHATSAPP --- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #25d366;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 999;
-            display: flex;
-            align-items: center;
-        }
 
         /* --- FOOTER --- */
         footer {
             background: var(--preto-profundo);
-            color: #888;
+            color: #666;
             text-align: center;
-            padding: 60px 5%;
+            padding: 40px 5%;
         }
 
-        footer .logo { margin-bottom: 20px; display: block; }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -248,23 +189,22 @@
         <a href="#" class="logo">LUXE GLOW</a>
         <nav>
             <a href="#lancamentos">Lançamentos</a>
-            <a href="#kits">Kits Premium</a>
+            <a href="#kits">Kits</a>
             <a href="#vendidos">Bestsellers</a>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-content">
-            <p>Descubra a sua melhor versão</p>
-            <h1>Ouro Mineral & Brilho Eterno</h1>
-            <a href="#lancamentos" class="cta-button">Ver Coleção Completa</a>
+            <p>A excelência em maquiagem</p>
+            <h1>Beleza Realçada com Ouro</h1>
         </div>
     </section>
 
     <div class="trust-bar">
-        <span>📦 Frete Grátis acima de R$ 250</span>
         <span>✨ Cruelty Free</span>
-        <span>💎 1ª Troca Grátis</span>
+        <span>📦 Envio para todo Brasil</span>
+        <span>💎 Qualidade Premium</span>
     </div>
 
     <section id="lancamentos">
@@ -275,104 +215,14 @@
         <div class="grid">
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&w=600&q=80" alt="Batom">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc4033c8?auto=format&fit=crop&w=600&q=80">
                 </div>
                 <div class="product-info">
                     <h3>Batom Matte Imperial</h3>
                     <span class="price">R$ 129,90</span>
-                    <button class="buy-btn">Adicionar à Sacola</button>
+                    <button class="buy-btn" onclick="enviarWhatsapp('Batom Matte Imperial', 'R$ 129,90')">Adicionar à Sacola</button>
                 </div>
             </div>
             <div class="product-card">
                 <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Base">
-                </div>
-                <div class="product-info">
-                    <h3>Sérum Foundation Gold</h3>
-                    <span class="price">R$ 189,00</span>
-                    <button class="buy-btn">Adicionar à Sacola</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1527799822367-a588b0a04634?auto=format&fit=crop&w=600&q=80" alt="Paleta">
-                </div>
-                <div class="product-info">
-                    <h3>Paleta Luxury 24k</h3>
-                    <span class="price">R$ 297,00</span>
-                    <button class="buy-btn">Adicionar à Sacola</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="kits" class="dark-section">
-        <div class="section-header">
-            <h2>Kits de Ateliê</h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid">
-            <div class="product-card" style="background: #1a1a1a;">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1522338223523-dcacaf0ac888?auto=format&fit=crop&w=600&q=80" alt="Kit">
-                </div>
-                <div class="product-info" style="color: white;">
-                    <h3>Kit Noite de Gala</h3>
-                    <span class="price">R$ 450,00</span>
-                    <button class="buy-btn" style="background: var(--ouro); color: black;">Comprar Kit</button>
-                </div>
-            </div>
-            <div class="product-card" style="background: #1a1a1a;">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1526045431048-f857369aba09?auto=format&fit=crop&w=600&q=80" alt="Kit">
-                </div>
-                <div class="product-info" style="color: white;">
-                    <h3>Essentials Daily Glow</h3>
-                    <span class="price">R$ 310,00</span>
-                    <button class="buy-btn" style="background: var(--ouro); color: black;">Comprar Kit</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="vendidos">
-        <div class="section-header">
-            <h2>Mais Desejados</h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid">
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=600&q=80" alt="Mascara">
-                </div>
-                <div class="product-info">
-                    <h3>Máscara Lash Millionaire</h3>
-                    <span class="price">R$ 98,00</span>
-                    <button class="buy-btn">Adicionar à Sacola</button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="img-box">
-                    <img src="https://images.unsplash.com/photo-1599733594230-6b823276abcc?auto=format&fit=crop&w=600&q=80" alt="Gloss">
-                </div>
-                <div class="product-info">
-                    <h3>Gloss Plump Diamond</h3>
-                    <span class="price">R$ 85,00</span>
-                    <button class="buy-btn">Adicionar à Sacola</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/seunumeroaqui" class="whatsapp-float" target="_blank">
-        💬 Dúvidas no WhatsApp
-    </a>
-
-    <footer>
-        <a href="#" class="logo">LUXE GLOW</a>
-        <p>&copy; 2026 Luxe Glow Cosmetics. Todos os direitos reservados.</p>
-        <p style="margin-top: 20px; font-size: 0.7rem;">Privacidade | Termos de Uso | Revenda</p>
-    </footer>
-
-</body>
-</html>
+                    <img src="
