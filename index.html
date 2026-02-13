@@ -1,1 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Glow | Maquiagem de Luxo</title>
+    <style>
+        /* Definições de Cores e Fontes */
+        :root {
+            --dourado: #D4AF37;
+            --dourado-claro: #F1D279;
+            --preto: #1A1A1A;
+            --branco: #FFFFFF;
+            --gelo: #F9F9F9;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gelo);
+            color: var(--preto);
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--preto);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--dourado);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            color: var(--dourado);
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--dourado);
+        }
+
+        /* Seção Hero (Banner) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--branco);
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .btn-principal {
+            background-color: var(--dourado);
+            color: var(--preto);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .btn-principal:hover {
+            background-color: var(--dourado-claro);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Produtos */
+        .produtos {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .produtos h3 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .produtos h3::after {
+            content: '';
+            width: 60%;
+            height: 3px;
+            background: var(--dourado);
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: var(--branco);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .card:hover {
+            border: 1px solid var(--dourado);
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            color: var(--dourado);
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid var(--dourado);
+            color: var(--preto);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background-color: var(--dourado);
+            color: var(--branco);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 5px solid var(--dourado);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Luxe Glow</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Coleções</a></li>
+                <li><a href="#">Batom</a></li>
+                <li><a href="#">Pele</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>A Realeza em Cada Traço</h2>
+        <p style="margin-bottom: 30px; font-size: 18px;">Conheça a nova linha Gold Edition com pigmentos minerais de alta performance.</p>
+        <a href="#" class="btn-principal">Explorar Coleção</a>
+    </section>
+
+    <section class="produtos">
+        <h3>Destaques da Semana</h3>
+        <div class="grid-produtos">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=500&q=80" alt="Batom">
+                <h4>Batom Matte Velvet</h4>
+                <span class="preco">R$ 89,90</span>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=500&q=80" alt="Base">
+                <h4>Base Glow Radiant</h4>
+                <span class="preco">R$ 145,00</span>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1527799822367-a588b0a04634?auto=format&fit=crop&w=500&q=80" alt="Paleta">
+                <h4>Paleta 24k Dreams</h4>
+                <span class="preco">R$ 198,00</span>
+                <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Luxe Glow Cosmetics - Todos os direitos reservados.</p>
+        <p style="margin-top: 10px; color: var(--dourado);">Siga-nos: @luxeglow_oficial</p>
+    </footer>
+
+</body>
+</html>
