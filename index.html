@@ -225,4 +225,104 @@
             </div>
             <div class="product-card">
                 <div class="img-box">
-                    <img src="
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Sérum Foundation Gold</h3>
+                    <span class="price">R$ 189,00</span>
+                    <button class="buy-btn" onclick="enviarWhatsapp('Sérum Foundation Gold', 'R$ 189,00')">Adicionar à Sacola</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1527799822367-a588b0a04634?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Paleta Luxury 24k</h3>
+                    <span class="price">R$ 297,00</span>
+                    <button class="buy-btn" onclick="enviarWhatsapp('Paleta Luxury 24k', 'R$ 297,00')">Adicionar à Sacola</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kits" class="dark-section">
+        <div class="section-header">
+            <h2>Kits de Ateliê</h2>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
+            <div class="product-card" style="background: #1a1a1a;">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1522338223523-dcacaf0ac888?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Kit Noite de Gala</h3>
+                    <span class="price">R$ 450,00</span>
+                    <button class="buy-btn" style="background: var(--ouro); color: black;" onclick="enviarWhatsapp('Kit Noite de Gala', 'R$ 450,00')">Comprar Kit</button>
+                </div>
+            </div>
+            <div class="product-card" style="background: #1a1a1a;">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1526045431048-f857369aba09?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Essentials Daily Glow</h3>
+                    <span class="price">R$ 310,00</span>
+                    <button class="buy-btn" style="background: var(--ouro); color: black;" onclick="enviarWhatsapp('Essentials Daily Glow', 'R$ 310,00')">Comprar Kit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vendidos">
+        <div class="section-header">
+            <h2>Mais Desejados</h2>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1631214500115-598fc2cb8d2d?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Máscara Lash Millionaire</h3>
+                    <span class="price">R$ 98,00</span>
+                    <button class="buy-btn" onclick="enviarWhatsapp('Máscara Lash Millionaire', 'R$ 98,00')">Adicionar à Sacola</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="img-box">
+                    <img src="https://images.unsplash.com/photo-1599733594230-6b823276abcc?auto=format&fit=crop&w=600&q=80">
+                </div>
+                <div class="product-info">
+                    <h3>Gloss Plump Diamond</h3>
+                    <span class="price">R$ 85,00</span>
+                    <button class="buy-btn" onclick="enviarWhatsapp('Gloss Plump Diamond', 'R$ 85,00')">Adicionar à Sacola</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span class="logo" style="font-size: 1.2rem;">LUXE GLOW</span>
+        <p>&copy; 2026 Luxe Glow Cosmetics.</p>
+    </footer>
+
+    <a href="https://wa.me/5548988146267" class="whatsapp-float" target="_blank">💬 Suporte</a>
+
+    <script>
+        function enviarWhatsapp(nomeProduto, precoProduto) {
+            const numero = "5548988146267";
+            const mensagem = `Olá Luxe Glow! ✨\nGostaria de adquirir o produto: *${nomeProduto}*\nValor: *${precoProduto}*\n\nComo faço para finalizar o pagamento?`;
+            
+            // Codifica a mensagem para URL
+            const msgCodificada = encodeURIComponent(mensagem);
+            
+            // Abre o link do WhatsApp
+            window.open(`https://wa.me/${numero}?text=${msgCodificada}`, '_blank');
+        }
+    </script>
+
+</body>
+</html>
