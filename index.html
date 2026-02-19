@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barba & Navalha | Experience & Style</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Dexter Esportes | Ultra Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #d4a373;
-            --primary-dark: #b88655;
-            --dark: #121212;
-            --dark-soft: #1e1e1e;
-            --light: #f4f4f4;
-            --gray: #888;
+            --primary: #ff4d00; /* Laranja Esportivo */
+            --secondary: #00e5ff; /* Ciano de Destaque */
+            --dark: #0f1113;
+            --dark-light: #1c1f22;
+            --white: #ffffff;
+            --gray: #a0a0a0;
             --transition: all 0.3s ease;
         }
 
@@ -25,54 +25,366 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
+            color: var(--white);
+            line-height: 1.6;
         }
 
         h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* --- HEADER --- */
+        /* --- NAVEGAÇÃO --- */
         header {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 1.2rem 8%;
+            background: rgba(15, 17, 19, 0.95);
+            padding: 20px 8%;
             position: fixed;
             width: 100%;
+            top: 0;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 1px solid rgba(255, 77, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
             color: var(--primary);
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 30px;
         }
 
         nav ul li a {
-            color: white;
             text-decoration: none;
-            font-weight: 700;
+            color: var(--white);
+            font-weight: 600;
             font-size: 0.9rem;
-            text-transform: uppercase;
             transition: var(--transition);
         }
 
         nav ul li a:hover {
             color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 5.5rem);
+            margin-bottom: 15px;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 35px;
+            color: var(--gray);
+        }
+
+        .btn-main {
+            background: var(--primary);
+            color: var(--white);
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 50px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(255, 77, 0, 0.4);
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- CATEGORIAS --- */
+        .categories {
+            padding: 100px 8%;
+            background: var(--dark-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 { font-size: 2.5rem; }
+        .underline {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 15px auto;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            position: relative;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        /* --- DIFERENCIAIS --- */
+        .stats {
+            padding: 80px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .stat-item h3 { font-size: 1.8rem; }
+
+        /* --- CONTATO --- */
+        .contact {
+            padding: 100px 8%;
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background: var(--dark-light);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: var(--dark);
+            border: 1px solid #333;
+            color: white;
+            border-radius: 8px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 8% 30px;
+            background: #000;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
+        .footer-links h4 { margin-bottom: 20px; color: var(--primary); }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 10px; }
+        .footer-links ul li a { color: var(--gray); text-decoration: none; }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover { color: var(--primary); }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            nav { display: none; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DEXTER<span>ESPORTES</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#modalidades">Modalidades</a></li>
+                <li><a href="#loja">Equipamentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <i class="fas fa-search" style="margin-right: 15px; cursor: pointer;"></i>
+            <i class="fas fa-shopping-bag" style="cursor: pointer;"></i>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>SUPERE SEUS LIMITES</h1>
+        <p>A Dexter Esportes oferece a melhor tecnologia e suporte para atletas que buscam a alta performance, do amador ao profissional.</p>
+        <a href="#modalidades" class="btn-main">Começar Jornada</a>
+    </section>
+
+    <div class="stats">
+        <div class="stat-item">
+            <i class="fas fa-bolt"></i>
+            <h3>+500</h3>
+            <p>Atletas Atendidos</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-trophy"></i>
+            <h3>15</h3>
+            <p>Prêmios de Qualidade</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-dumbbell"></i>
+            <h3>24/7</h3>
+            <p>Suporte Especializado</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-globe"></i>
+            <h3>Brasil</h3>
+            <p>Envio para todo país</p>
+        </div>
+    </div>
+
+    <section class="categories" id="modalidades">
+        <div class="section-header">
+            <h2>Nossas Modalidades</h2>
+            <div class="underline"></div>
+            <p>Equipamentos e treinos focados no seu esporte favorito.</p>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=500" alt="Running">
+                <div class="category-overlay">
+                    <h3>Performance Running</h3>
+                    <p>Vença cada quilômetro.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=500" alt="Gym">
+                <div class="category-overlay">
+                    <h3>Bodybuilding</h3>
+                    <p>Força e disciplina bruta.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=500" alt="Cycling">
+                <div class="category-overlay">
+                    <h3>Pro Cycling</h3>
+                    <p>Velocidade em duas rodas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contato">
+        <div style="flex: 1;">
+            <h2>FALE COM UM <br><span style="color: var(--primary);">ESPECIALISTA</span></h2>
+            <p style="margin: 20px 0; color: var(--gray);">Dúvidas sobre qual equipamento escolher ou como começar? Nossa equipe está pronta para te guiar.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <form>
+                <input type="text" placeholder="Nome Completo" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea rows="5" placeholder="Como podemos te ajudar?"></textarea>
+                <button type="submit" class="btn-main" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <div class="footer-logo">DEXTER<span>ESPORTES</span></div>
+                <p>Onde a tecnologia encontra a força. Sua parceira oficial de performance.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Parceiros</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 30px; border-top: 1px solid #222; color: var(--gray); font-size: 0.8rem;">
+            &copy; 2026 Dexter Esportes. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
