@@ -6,14 +6,13 @@
     <title>Vinícius Hurt | Estrategista Digital & Performance</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #000000;
-            --secondary: #111111;
-            --accent: #00d2ff; /* Azul Neon Sofisticado */
-            --accent-2: #9d00ff; /* Roxo Profundo */
+            --primary: #050505;
+            --secondary: #0f0f0f;
+            --accent: #00d2ff; 
             --gold: #d4af37;
             --text-main: #ffffff;
             --text-dim: #a0a0a0;
@@ -32,6 +31,7 @@
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Barra de Navegação */
@@ -43,130 +43,147 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid var(--glass);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 900;
-            letter-spacing: -1px;
-            background: linear-gradient(45deg, var(--text-main), var(--accent));
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .logo span { color: var(--accent); }
+
+        /* Hero Section Premium */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 8% 50px;
+            background: radial-gradient(circle at 20% 30%, #111 0%, #050505 100%);
+            position: relative;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(to right, var(--accent), #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Hero Section */
-        header {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at top right, #1a1a1a, #000);
-        }
-
-        .hero-text h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-text span {
-            color: var(--accent);
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        }
-
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto 40px;
+            max-width: 550px;
+            margin-bottom: 35px;
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
         }
 
-        /* Cards de Serviços/Planos */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Moldura Estilizada para a sua foto */
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 30px;
+            filter: grayscale(20%);
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.8);
+            border: 1px solid var(--glass);
+            z-index: 2;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            border-radius: 30px;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        /* Serviços */
         .services {
-            padding: 100px 5%;
-            background: var(--secondary);
+            padding: 100px 8%;
+            background-color: var(--secondary);
         }
 
         .section-title {
-            text-align: center;
             margin-bottom: 60px;
         }
 
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
 
         .grid-plans {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 25px;
         }
 
         .plan-card {
-            background: #181818;
-            padding: 50px 40px;
-            border-radius: 24px;
+            background: #161616;
+            padding: 40px;
+            border-radius: 20px;
             border: 1px solid var(--glass);
             transition: 0.4s;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .plan-card:hover {
             border-color: var(--accent);
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.1);
         }
 
-        .plan-card.featured {
-            border: 2px solid var(--accent);
-            background: linear-gradient(145deg, #181818, #222);
-        }
+        .plan-card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
 
-        .plan-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-        }
-
-        .plan-card ul {
-            list-style: none;
-            flex-grow: 1;
-            margin-bottom: 40px;
-        }
+        .plan-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
 
         .plan-card ul li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: var(--text-dim);
             display: flex;
             align-items: center;
+            font-size: 0.95rem;
         }
 
-        .plan-card ul li i {
-            color: var(--accent);
-            margin-right: 15px;
-            font-size: 0.9rem;
-        }
+        .plan-card ul li i { color: var(--accent); margin-right: 12px; font-size: 0.8rem; }
 
-        /* Botões WhatsApp */
+        /* CTA Buttons */
         .btn-cta {
             background: var(--text-main);
-            color: var(--primary);
-            padding: 18px;
+            color: #000;
+            padding: 16px 30px;
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 700;
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -177,6 +194,7 @@
         .btn-cta:hover {
             background: var(--accent);
             color: white;
+            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
         }
 
         .btn-wpp-float {
@@ -191,87 +209,78 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 5%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--glass);
-            margin-bottom: 10px;
-            padding: 20px;
-            border-radius: 10px;
+            font-size: 28px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 9999;
+            text-decoration: none;
         }
 
         footer {
-            padding: 60px 5%;
+            padding: 40px 8%;
             text-align: center;
             border-top: 1px solid var(--glass);
             color: var(--text-dim);
+            font-size: 0.8rem;
         }
 
         /* Responsividade */
-        @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.5rem; }
-            nav { padding: 15px 5%; }
+        @media (max-width: 968px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 35px; border-left: none; border-bottom: 3px solid var(--accent); padding: 0 0 15px; }
+            .hero-image img { max-width: 300px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">VINÍCIUS HURT</div>
-        <div class="contact-info">
-            <a href="https://wa.me/5548988146267" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">ENTRAR EM CONTATO</a>
-        </div>
+        <div class="logo">VINÍCIUS <span>HURT</span></div>
+        <a href="https://wa.me/5548988146267" class="btn-cta" style="padding: 10px 20px; font-size: 0.8rem;">CONTATO</a>
     </nav>
 
     <header>
-        <div class="hero-text">
-            <p style="letter-spacing: 5px; font-weight: bold; color: var(--accent);">MARKETING DE PERFORMANCE</p>
-            <h1>O próximo nível do seu <span>Negócio</span> começa aqui.</h1>
-            <p>Estratégia, Design e Tráfego Pago para quem não aceita resultados comuns.</p>
-            <a href="#planos" class="btn-cta" style="max-width: 300px; margin: 0 auto; background: var(--accent); color: white;">VER SOLUÇÕES</a>
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Estrategista de <span>Resultados</span> Digitais.</h1>
+                <p>Ajudo empresas e profissionais liberais a dominarem o mercado digital através de posicionamento premium e tráfego qualificado.</p>
+                <a href="#planos" class="btn-cta" style="background: var(--accent); color: white; width: fit-content;">CONHECER MEU TRABALHO</a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://mrtp-prod.s3.amazonaws.com/input_files/2025/05/17/10/8f3b6033-6625-4c04-9430-3882759e6931/Foto_de_Vini.jpg" alt="Vinícius Hurt">
+            </div>
         </div>
     </header>
 
     <section class="services" id="planos">
         <div class="section-title">
-            <h2>Nossos Pacotes</h2>
-            <p>Selecione a solução ideal para o seu momento atual</p>
+            <p style="color: var(--accent); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Soluções</p>
+            <h2>Como posso te ajudar</h2>
         </div>
 
         <div class="grid-plans">
             <div class="plan-card">
                 <h3>Social Mídia</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Gestão de Instagram/TikTok</li>
-                    <li><i class="fas fa-check"></i> Design de Identidade Visual</li>
-                    <li><i class="fas fa-check"></i> Roteiros para Reels</li>
-                    <li><i class="fas fa-check"></i> Legendas Estratégicas</li>
+                    <li><i class="fas fa-check"></i> Gestão Estratégica de Perfil</li>
+                    <li><i class="fas fa-check"></i> Criação de Conteúdo Viral</li>
+                    <li><i class="fas fa-check"></i> Design de Alto Padrão</li>
+                    <li><i class="fas fa-check"></i> Linha Editorial Exclusiva</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, vim pelo site e quero o pacote de Social Mídia!" class="btn-cta">
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero elevar meu posicionamento no Social Mídia!" class="btn-cta">
                     <i class="fab fa-whatsapp"></i> CONSULTAR
                 </a>
             </div>
 
-            <div class="plan-card featured">
-                <div style="position: absolute; top: 15px; right: 20px; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 900; padding: 5px 10px; border-radius: 20px;">MAIS PROCURADO</div>
+            <div class="plan-card" style="border-top: 4px solid var(--accent);">
                 <h3>Sites & LPs</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Landing Pages de Alta Conversão</li>
-                    <li><i class="fas fa-check"></i> Design Ultra-Premium</li>
-                    <li><i class="fas fa-check"></i> Otimização para Google</li>
-                    <li><i class="fas fa-check"></i> Suporte e Manutenção</li>
+                    <li><i class="fas fa-check"></i> Landing Pages de Conversão</li>
+                    <li><i class="fas fa-check"></i> Sites Institucionais</li>
+                    <li><i class="fas fa-check"></i> Otimização de Velocidade</li>
+                    <li><i class="fas fa-check"></i> Design Responsivo</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, preciso de um site profissional. Pode me ajudar?" class="btn-cta" style="background: var(--accent); color: white;">
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, preciso de um site profissional para meu negócio." class="btn-cta" style="background: var(--accent); color: white;">
                     <i class="fab fa-whatsapp"></i> CONSULTAR
                 </a>
             </div>
@@ -279,34 +288,20 @@
             <div class="plan-card">
                 <h3>Tráfego Pago</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Gestão de Meta Ads</li>
-                    <li><i class="fas fa-check"></i> Google & Youtube Ads</li>
-                    <li><i class="fas fa-check"></i> Remarketing Agressivo</li>
-                    <li><i class="fas fa-check"></i> Dashboard de Resultados</li>
+                    <li><i class="fas fa-check"></i> Campanhas Meta Ads</li>
+                    <li><i class="fas fa-check"></i> Google Ads (Pesquisa/Rede)</li>
+                    <li><i class="fas fa-check"></i> Estratégia de Captação</li>
+                    <li><i class="fas fa-check"></i> Análise de ROI</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero investir em tráfego pago para minha empresa!" class="btn-cta">
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero vender mais com Tráfego Pago!" class="btn-cta">
                     <i class="fab fa-whatsapp"></i> CONSULTAR
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="faq">
-        <div class="section-title">
-            <h2>Dúvidas Frequentes</h2>
-        </div>
-        <div class="faq-item">
-            <strong>Como funciona o pagamento?</strong>
-            <p>Trabalhamos com modelos mensais ou por projeto, via boleto, PIX ou cartão.</p>
-        </div>
-        <div class="faq-item">
-            <strong>Em quanto tempo vejo resultados?</strong>
-            <p>Tráfego pago costuma trazer leads no primeiro mês. Social média é construção de autoridade a médio prazo.</p>
-        </div>
-    </section>
-
     <footer>
-        <p>&copy; 2024 Vinícius Hurt. Desenvolvido para o Sucesso.</p>
+        <p>&copy; 2026 Vinícius Hurt. Todos os direitos reservados.</p>
     </footer>
 
     <a href="https://wa.me/5548988146267" class="btn-wpp-float" target="_blank">
