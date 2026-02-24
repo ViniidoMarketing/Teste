@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(15px);
             z-index: 1000;
             border-bottom: 1px solid var(--glass);
@@ -54,147 +54,136 @@
             font-weight: 900;
             letter-spacing: 1px;
             color: var(--text-main);
+            text-decoration: none;
         }
 
         .logo span { color: var(--accent); }
 
-        /* Hero Section Premium */
+        /* Hero Section com Imagem de Fundo */
         header {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 8% 50px;
-            background: radial-gradient(circle at 20% 30%, #111 0%, #050505 100%);
+            justify-content: flex-start;
+            padding: 0 8%;
+            /* Camada de gradiente para garantir leitura do texto + Imagem de fundo */
+            background: 
+                linear-gradient(to right, rgba(5,5,5,1) 30%, rgba(5,5,5,0.7) 50%, rgba(5,5,5,0.2) 100%),
+                url('https://mrtp-prod.s3.amazonaws.com/input_files/2025/05/17/10/8f3b6033-6625-4c04-9430-3882759e6931/Foto_de_Vini.jpg');
+            background-size: cover;
+            background-position: center 20%;
             position: relative;
         }
 
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            align-items: center;
-            gap: 50px;
-            width: 100%;
+        .hero-text {
+            max-width: 700px;
+            z-index: 2;
+            margin-top: 50px;
         }
 
         .hero-text h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.8rem, 7vw, 5rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.1;
             margin-bottom: 25px;
+            text-transform: uppercase;
         }
 
         .hero-text h1 span {
-            background: linear-gradient(to right, var(--accent), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--accent);
+            display: block;
         }
 
         .hero-text p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-dim);
-            max-width: 550px;
-            margin-bottom: 35px;
-            border-left: 3px solid var(--accent);
+            margin-bottom: 40px;
+            max-width: 500px;
+            border-left: 4px solid var(--accent);
             padding-left: 20px;
-        }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Moldura Estilizada para a sua foto */
-        .hero-image img {
-            width: 100%;
-            max-width: 450px;
-            border-radius: 30px;
-            filter: grayscale(20%);
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.8);
-            border: 1px solid var(--glass);
-            z-index: 2;
-        }
-
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--accent);
-            border-radius: 30px;
-            z-index: 1;
-            opacity: 0.3;
         }
 
         /* Serviços */
         .services {
             padding: 100px 8%;
-            background-color: var(--secondary);
+            background-color: var(--primary);
+            position: relative;
         }
 
         .section-title {
             margin-bottom: 60px;
+            text-align: center;
         }
 
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-title h2 { font-size: 2.8rem; font-weight: 900; }
+        .section-title p { color: var(--accent); font-weight: 700; letter-spacing: 3px; }
 
         .grid-plans {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .plan-card {
-            background: #161616;
-            padding: 40px;
-            border-radius: 20px;
+            background: var(--secondary);
+            padding: 50px 40px;
+            border-radius: 30px;
             border: 1px solid var(--glass);
-            transition: 0.4s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
         .plan-card:hover {
             border-color: var(--accent);
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        .plan-card h3 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
+        .plan-card h3 { 
+            font-size: 1.8rem; 
+            margin-bottom: 25px; 
+            color: var(--text-main);
+            font-weight: 800;
+        }
 
-        .plan-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .plan-card ul { list-style: none; margin-bottom: 40px; flex-grow: 1; }
 
         .plan-card ul li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             color: var(--text-dim);
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
-        .plan-card ul li i { color: var(--accent); margin-right: 12px; font-size: 0.8rem; }
+        .plan-card ul li i { color: var(--accent); margin-right: 15px; }
 
         /* CTA Buttons */
         .btn-cta {
             background: var(--text-main);
             color: #000;
-            padding: 16px 30px;
+            padding: 18px 35px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: 700;
+            border-radius: 15px;
+            font-weight: 800;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-cta:hover {
             background: var(--accent);
             color: white;
-            box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.4);
         }
 
         .btn-wpp-float {
@@ -202,106 +191,116 @@
             bottom: 30px;
             right: 30px;
             background: #25d366;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 28px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            font-size: 32px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 9999;
             text-decoration: none;
+            transition: 0.3s;
         }
+
+        .btn-wpp-float:hover { transform: scale(1.1); }
 
         footer {
-            padding: 40px 8%;
+            padding: 60px 8%;
             text-align: center;
+            background: var(--primary);
             border-top: 1px solid var(--glass);
             color: var(--text-dim);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
-        /* Responsividade */
-        @media (max-width: 968px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-text p { margin: 0 auto 35px; border-left: none; border-bottom: 3px solid var(--accent); padding: 0 0 15px; }
-            .hero-image img { max-width: 300px; }
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            header {
+                background: 
+                    linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.9) 80%, rgba(5,5,5,1) 100%),
+                    url('https://mrtp-prod.s3.amazonaws.com/input_files/2025/05/17/10/8f3b6033-6625-4c04-9430-3882759e6931/Foto_de_Vini.jpg');
+                background-size: cover;
+                background-position: center;
+                text-align: center;
+                justify-content: center;
+            }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-text p { margin: 0 auto 40px; border-left: none; border-bottom: 3px solid var(--accent); padding-bottom: 15px; }
+            .btn-cta { width: 100%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">VINÍCIUS <span>HURT</span></div>
-        <a href="https://wa.me/5548988146267" class="btn-cta" style="padding: 10px 20px; font-size: 0.8rem;">CONTATO</a>
+        <a href="#" class="logo">VINÍCIUS <span>HURT</span></a>
+        <a href="https://wa.me/5548988146267" class="btn-cta" style="padding: 12px 25px; font-size: 0.8rem;">Falar com Especialista</a>
     </nav>
 
     <header>
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>Estrategista de <span>Resultados</span> Digitais.</h1>
-                <p>Ajudo empresas e profissionais liberais a dominarem o mercado digital através de posicionamento premium e tráfego qualificado.</p>
-                <a href="#planos" class="btn-cta" style="background: var(--accent); color: white; width: fit-content;">CONHECER MEU TRABALHO</a>
-            </div>
-            
-            <div class="hero-image">
-                <img src="https://mrtp-prod.s3.amazonaws.com/input_files/2025/05/17/10/8f3b6033-6625-4c04-9430-3882759e6931/Foto_de_Vini.jpg" alt="Vinícius Hurt">
-            </div>
+        <div class="hero-text">
+            <p style="border: none; padding: 0; text-transform: uppercase; letter-spacing: 4px; font-weight: 900; color: var(--accent); margin-bottom: 10px;">Marketing de Performance</p>
+            <h1>O Poder da <span>Estratégia</span> Digital.</h1>
+            <p>Escalamos o faturamento do seu negócio através de posicionamento premium, tráfego pago e conversão.</p>
+            <a href="#planos" class="btn-cta" style="background: var(--accent); color: white; width: fit-content;">Explorar Pacotes</a>
         </div>
     </header>
 
     <section class="services" id="planos">
         <div class="section-title">
-            <p style="color: var(--accent); font-weight: bold; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Soluções</p>
-            <h2>Como posso te ajudar</h2>
+            <p>INVESTIMENTO</p>
+            <h2>Nossas Soluções</h2>
         </div>
 
         <div class="grid-plans">
             <div class="plan-card">
                 <h3>Social Mídia</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Gestão Estratégica de Perfil</li>
-                    <li><i class="fas fa-check"></i> Criação de Conteúdo Viral</li>
-                    <li><i class="fas fa-check"></i> Design de Alto Padrão</li>
-                    <li><i class="fas fa-check"></i> Linha Editorial Exclusiva</li>
+                    <li><i class="fas fa-check-circle"></i> Gestão de Perfil High-End</li>
+                    <li><i class="fas fa-check-circle"></i> Design de Identidade Visual</li>
+                    <li><i class="fas fa-check-circle"></i> Roteiros e Edição de Reels</li>
+                    <li><i class="fas fa-check-circle"></i> Estratégia de Conteúdo</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero elevar meu posicionamento no Social Mídia!" class="btn-cta">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, vim pelo seu site e quero saber sobre o plano de Social Mídia!" class="btn-cta">
+                    <i class="fab fa-whatsapp"></i> Consultar Valor
                 </a>
             </div>
 
-            <div class="plan-card" style="border-top: 4px solid var(--accent);">
-                <h3>Sites & LPs</h3>
+            <div class="plan-card" style="border: 2px solid var(--accent);">
+                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: black; padding: 5px 20px; border-radius: 20px; font-weight: 900; font-size: 0.7rem;">TOP PERFORMANCE</div>
+                <h3>Landing Pages</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Landing Pages de Conversão</li>
-                    <li><i class="fas fa-check"></i> Sites Institucionais</li>
-                    <li><i class="fas fa-check"></i> Otimização de Velocidade</li>
-                    <li><i class="fas fa-check"></i> Design Responsivo</li>
+                    <li><i class="fas fa-check-circle"></i> Design Focado em Vendas</li>
+                    <li><i class="fas fa-check-circle"></i> Estrutura Ultra-Veloz</li>
+                    <li><i class="fas fa-check-circle"></i> Otimização para Mobile</li>
+                    <li><i class="fas fa-check-circle"></i> SEO e Google Ready</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, preciso de um site profissional para meu negócio." class="btn-cta" style="background: var(--accent); color: white;">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, vim pelo site e preciso de uma Landing Page de alta conversão!" class="btn-cta" style="background: var(--accent); color: white;">
+                    <i class="fab fa-whatsapp"></i> Consultar Valor
                 </a>
             </div>
 
             <div class="plan-card">
                 <h3>Tráfego Pago</h3>
                 <ul>
-                    <li><i class="fas fa-check"></i> Campanhas Meta Ads</li>
-                    <li><i class="fas fa-check"></i> Google Ads (Pesquisa/Rede)</li>
-                    <li><i class="fas fa-check"></i> Estratégia de Captação</li>
-                    <li><i class="fas fa-check"></i> Análise de ROI</li>
+                    <li><i class="fas fa-check-circle"></i> Gestão de Meta Ads (Insta/FB)</li>
+                    <li><i class="fas fa-check-circle"></i> Campanhas de Google Ads</li>
+                    <li><i class="fas fa-check-circle"></i> Dashboards de Resultados</li>
+                    <li><i class="fas fa-check-circle"></i> Escala de Vendas Ativa</li>
                 </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero vender mais com Tráfego Pago!" class="btn-cta">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
+                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero escalar minhas vendas com Tráfego Pago. Pode me ajudar?" class="btn-cta">
+                    <i class="fab fa-whatsapp"></i> Consultar Valor
                 </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Vinícius Hurt. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Vinícius Hurt | Estrategista de Performance.</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.5;">Florianópolis - SC</p>
     </footer>
 
     <a href="https://wa.me/5548988146267" class="btn-wpp-float" target="_blank">
