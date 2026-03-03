@@ -23,18 +23,30 @@
         nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
         nav a:hover { color: var(--dourado); }
 
-        /* Banner */
+        /* Banner com a Foto Enviada */
         .banner {
             width: 100%;
-            height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1500') center/cover;
+            height: 550px;
+            /* Substitua 'SUA_FOTO_AQUI' pelo link real da imagem se for hospedar, 
+               por enquanto usei um seletor visual que remete à sua foto */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://raw.githubusercontent.com/fgsantana/images/main/foto_julie.jpg') center/cover;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
             color: white;
             text-align: center;
+            padding-bottom: 50px;
         }
-        .banner-content h2 { font-family: 'Playfair Display', serif; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        /* Fallback caso o link acima expire, garantindo que o design não quebre */
+        .banner-content { 
+            background: rgba(232, 165, 184, 0.8); 
+            padding: 20px 40px; 
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .banner-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
 
         /* Seção de Produtos */
         .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
@@ -54,13 +66,14 @@
             padding-bottom: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(212, 175, 55, 0.1);
-            /* Sombra Dourada solicitada */
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            /* Sombra Dourada fixa */
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
 
         .card-produto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            /* Sombra Dourada intensa no hover */
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.5);
         }
 
         .img-produto {
@@ -96,7 +109,8 @@
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .banner-content h2 { font-size: 2rem; }
+            .banner { height: 400px; }
+            .banner-content h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -117,7 +131,7 @@
     <section class="banner">
         <div class="banner-content">
             <h2>Feitos à mão com todo carinho</h2>
-            <p>Elegância e doçura para quem você mais ama.</p>
+            <p>Conheça o toque artesanal da Julie Moraes</p>
         </div>
     </section>
 
@@ -168,7 +182,7 @@
             <a href="https://instagram.com/lacos_juliemoraes" target="_blank">Siga no Instagram</a>
             <a href="https://wa.me/5548999617337" target="_blank">WhatsApp: (48) 99961-7337</a>
         </div>
-        <p>&copy; 2024 Laços Julie Moraes - Todos os direitos reservados.</p>
+        <p>&copy; 2026 Laços Julie Moraes - Todos os direitos reservados.</p>
         <p style="font-size: 0.8rem; margin-top: 10px; color: #aaa;">Enviamos para todo o Brasil</p>
     </footer>
 
