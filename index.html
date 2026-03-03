@@ -3,315 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vinícius Hurt | Estrategista Digital & Performance</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <title>Laços Julie Moraes | Acessórios Artesanais</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
+        /* Reset e Estilos Gerais */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fffafb; color: #333; line-height: 1.6; }
+        
         :root {
-            --primary: #000000;
-            --secondary: #111111;
-            --accent: #00d2ff; /* Azul Neon Sofisticado */
-            --accent-2: #9d00ff; /* Roxo Profundo */
-            --gold: #d4af37;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --glass: rgba(255, 255, 255, 0.05);
+            --rosa-principal: #e8a5b8;
+            --dourado: #d4af37;
+            --sombra-dourada: 0 10px 20px rgba(212, 175, 55, 0.2);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+        /* Header */
+        header { background: #fff; padding: 20px 0; text-align: center; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; }
+        .logo h1 { font-family: 'Playfair Display', serif; color: var(--rosa-principal); font-size: 2.5rem; }
+        nav { margin-top: 15px; }
+        nav a { margin: 0 15px; text-decoration: none; color: #555; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: var(--dourado); }
 
-        body {
-            background-color: var(--primary);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Barra de Navegação */
-        nav {
-            position: fixed;
-            top: 0;
+        /* Banner */
+        .banner {
             width: 100%;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            background: linear-gradient(45deg, var(--text-main), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Hero Section */
-        header {
-            height: 100vh;
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1500') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at top right, #1a1a1a, #000);
         }
+        .banner-content h2 { font-family: 'Playfair Display', serif; font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
 
-        .hero-text h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-family: 'Inter', sans-serif;
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-text span {
-            color: var(--accent);
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        /* Cards de Serviços/Planos */
-        .services {
-            padding: 100px 5%;
-            background: var(--secondary);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .grid-plans {
+        /* Seção de Produtos */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--dourado); }
+        
+        .grid-produtos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .plan-card {
-            background: #181818;
-            padding: 50px 40px;
-            border-radius: 24px;
-            border: 1px solid var(--glass);
-            transition: 0.4s;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+        .card-produto {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            /* Sombra Dourada solicitada */
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
         }
 
-        .plan-card:hover {
-            border-color: var(--accent);
+        .card-produto:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 210, 255, 0.1);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
         }
 
-        .plan-card.featured {
-            border: 2px solid var(--accent);
-            background: linear-gradient(145deg, #181818, #222);
+        .img-produto {
+            width: 100%;
+            height: 300px;
+            background-color: #f9f9f9;
+            object-fit: cover;
         }
 
-        .plan-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-        }
+        .card-produto h3 { margin: 15px 0 5px; font-size: 1.2rem; }
+        .preco { color: var(--dourado); font-weight: bold; font-size: 1.3rem; margin-bottom: 15px; display: block; }
 
-        .plan-card ul {
-            list-style: none;
-            flex-grow: 1;
-            margin-bottom: 40px;
-        }
-
-        .plan-card ul li {
-            margin-bottom: 15px;
-            color: var(--text-dim);
-            display: flex;
-            align-items: center;
-        }
-
-        .plan-card ul li i {
-            color: var(--accent);
-            margin-right: 15px;
-            font-size: 0.9rem;
-        }
-
-        /* Botões WhatsApp */
-        .btn-cta {
-            background: var(--text-main);
-            color: var(--primary);
-            padding: 18px;
+        /* Botão WhatsApp */
+        .btn-comprar {
+            background-color: #25d366;
+            color: white;
+            padding: 10px 25px;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            display: flex;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 8px;
             transition: 0.3s;
         }
+        .btn-comprar:hover { background-color: #128c7e; }
 
-        .btn-cta:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-wpp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 30px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 5%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--glass);
-            margin-bottom: 10px;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        footer {
-            padding: 60px 5%;
-            text-align: center;
-            border-top: 1px solid var(--glass);
-            color: var(--text-dim);
-        }
+        /* Footer */
+        footer { background: #333; color: white; padding: 40px 0; text-align: center; margin-top: 50px; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { color: white; margin: 0 10px; text-decoration: none; font-size: 1.1rem; border: 1px solid #fff; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
+        .social-links a:hover { background: var(--rosa-principal); border-color: var(--rosa-principal); }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.5rem; }
-            nav { padding: 15px 5%; }
+            .banner-content h2 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">VINÍCIUS HURT</div>
-        <div class="contact-info">
-            <a href="https://wa.me/5548988146267" style="color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem;">ENTRAR EM CONTATO</a>
-        </div>
-    </nav>
-
     <header>
-        <div class="hero-text">
-            <p style="letter-spacing: 5px; font-weight: bold; color: var(--accent);">MARKETING DE PERFORMANCE</p>
-            <h1>O próximo nível do seu <span>Negócio</span> começa aqui.</h1>
-            <p>Estratégia, Design e Tráfego Pago para quem não aceita resultados comuns.</p>
-            <a href="#planos" class="btn-cta" style="max-width: 300px; margin: 0 auto; background: var(--accent); color: white;">VER SOLUÇÕES</a>
+        <div class="logo">
+            <h1>Laços Julie Moraes</h1>
         </div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="https://instagram.com/lacos_juliemoraes" target="_blank">Instagram</a>
+            <a href="https://wa.me/5548999617337" target="_blank">Contato</a>
+        </nav>
     </header>
 
-    <section class="services" id="planos">
-        <div class="section-title">
-            <h2>Nossos Pacotes</h2>
-            <p>Selecione a solução ideal para o seu momento atual</p>
-        </div>
-
-        <div class="grid-plans">
-            <div class="plan-card">
-                <h3>Social Mídia</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Gestão de Instagram/TikTok</li>
-                    <li><i class="fas fa-check"></i> Design de Identidade Visual</li>
-                    <li><i class="fas fa-check"></i> Roteiros para Reels</li>
-                    <li><i class="fas fa-check"></i> Legendas Estratégicas</li>
-                </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, vim pelo site e quero o pacote de Social Mídia!" class="btn-cta">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
-                </a>
-            </div>
-
-            <div class="plan-card featured">
-                <div style="position: absolute; top: 15px; right: 20px; background: var(--accent); color: #000; font-size: 0.7rem; font-weight: 900; padding: 5px 10px; border-radius: 20px;">MAIS PROCURADO</div>
-                <h3>Sites & LPs</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Landing Pages de Alta Conversão</li>
-                    <li><i class="fas fa-check"></i> Design Ultra-Premium</li>
-                    <li><i class="fas fa-check"></i> Otimização para Google</li>
-                    <li><i class="fas fa-check"></i> Suporte e Manutenção</li>
-                </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, preciso de um site profissional. Pode me ajudar?" class="btn-cta" style="background: var(--accent); color: white;">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
-                </a>
-            </div>
-
-            <div class="plan-card">
-                <h3>Tráfego Pago</h3>
-                <ul>
-                    <li><i class="fas fa-check"></i> Gestão de Meta Ads</li>
-                    <li><i class="fas fa-check"></i> Google & Youtube Ads</li>
-                    <li><i class="fas fa-check"></i> Remarketing Agressivo</li>
-                    <li><i class="fas fa-check"></i> Dashboard de Resultados</li>
-                </ul>
-                <a href="https://wa.me/5548988146267?text=Olá Vinícius, quero investir em tráfego pago para minha empresa!" class="btn-cta">
-                    <i class="fab fa-whatsapp"></i> CONSULTAR
-                </a>
-            </div>
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Feitos à mão com todo carinho</h2>
+            <p>Elegância e doçura para quem você mais ama.</p>
         </div>
     </section>
 
-    <section class="faq">
-        <div class="section-title">
-            <h2>Dúvidas Frequentes</h2>
+    <main class="container" id="produtos">
+        <h2 class="section-title">Nossas Coleções</h2>
+
+        <div class="grid-produtos">
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1590736952402-4638a5b23ea0?q=80&w=400&h=400&fit=crop" alt="Laço Clássico" class="img-produto">
+                <h3>Laço Clássico Rosa Luxo</h3>
+                <span class="preco">R$ 25,90</span>
+                <a href="https://wa.me/5548999617337?text=Olá! Gostaria de encomendar o Laço Clássico Rosa Luxo" class="btn-comprar" target="_blank">
+                    Pedir no WhatsApp
+                </a>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1617331140180-e8262094733a?q=80&w=400&h=400&fit=crop" alt="Tiara Floral" class="img-produto">
+                <h3>Tiara Floral Encantada</h3>
+                <span class="preco">R$ 35,00</span>
+                <a href="https://wa.me/5548999617337?text=Olá! Gostaria de encomendar a Tiara Floral Encantada" class="btn-comprar" target="_blank">
+                    Pedir no WhatsApp
+                </a>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1634055627692-74070a9693bc?q=80&w=400&h=400&fit=crop" alt="Kit RN" class="img-produto">
+                <h3>Kit RN 3 Laços Delicados</h3>
+                <span class="preco">R$ 42,90</span>
+                <a href="https://wa.me/5548999617337?text=Olá! Gostaria de encomendar o Kit RN" class="btn-comprar" target="_blank">
+                    Pedir no WhatsApp
+                </a>
+            </div>
+
+            <div class="card-produto">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=400&h=400&fit=crop" alt="Laço Boutique" class="img-produto">
+                <h3>Laço Boutique com Pérolas</h3>
+                <span class="preco">R$ 29,90</span>
+                <a href="https://wa.me/5548999617337?text=Olá! Gostaria de encomendar o Laço Boutique" class="btn-comprar" target="_blank">
+                    Pedir no WhatsApp
+                </a>
+            </div>
         </div>
-        <div class="faq-item">
-            <strong>Como funciona o pagamento?</strong>
-            <p>Trabalhamos com modelos mensais ou por projeto, via boleto, PIX ou cartão.</p>
-        </div>
-        <div class="faq-item">
-            <strong>Em quanto tempo vejo resultados?</strong>
-            <p>Tráfego pago costuma trazer leads no primeiro mês. Social média é construção de autoridade a médio prazo.</p>
-        </div>
-    </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Vinícius Hurt. Desenvolvido para o Sucesso.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/lacos_juliemoraes" target="_blank">Siga no Instagram</a>
+            <a href="https://wa.me/5548999617337" target="_blank">WhatsApp: (48) 99961-7337</a>
+        </div>
+        <p>&copy; 2024 Laços Julie Moraes - Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #aaa;">Enviamos para todo o Brasil</p>
     </footer>
-
-    <a href="https://wa.me/5548988146267" class="btn-wpp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
 </body>
 </html>
